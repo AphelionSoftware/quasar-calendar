@@ -6,14 +6,13 @@
   >
     <template v-if="!eventHasPreviousDay() || (firstDayOfWeek && eventHasPreviousDay())">
       <div class="row">
-        <div class="col-auto calendar-agenda-event-dot lt-md" :class="getDotClass()"></div>
         <div v-if="!isAllDayEvent() && showTime" class="calendar-event-start-time col-auto">
           {{ formatTime(eventObject.start.dateObject) }}
         </div>
         <div v-if="isEmptySlot()" class="calendar-event-summary">
           &nbsp;
         </div>
-        <div v-else class="calendar-event-summary col font-weight-bold">
+        <div v-else class="calendar-event-summary col text-bold">
           {{ eventObject.summary }}
         </div>
       </div>
@@ -226,20 +225,8 @@
     padding-left $nextPrevEdgeVal
     padding-right $nextPrevEdgeVal
     clip-path polygon($nextPrevEdgeVal 100%, 0% 50%, $nextPrevEdgeVal 0, (100% - $nextPrevEdgeVal) 0%, 100% 50%, (100% - $nextPrevEdgeVal) 100%)
-  .calendar-agenda-event-dot
-    border-radius 12px
-    width 12px
-    height 12px
 
-  @media screen and (max-width: 500px)
-    .calendar-event
-      & > div
-        flex-wrap wrap
-        & > div:first-child
-          flex 0 0 12px
-        & > div:nth-child(2)
-          flex 0 0 calc(100% - 1rem - 12px)
-        & > div:nth-child(3)
-          flex 0 0 100%
-          padding 5px 0 0 calc(1rem + 12px)
+  .calendar-event-start-time
+    flex: 0 0 60px !important
+    padding 0px 5px
 </style>
