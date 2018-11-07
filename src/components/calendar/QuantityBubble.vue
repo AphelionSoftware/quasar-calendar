@@ -10,12 +10,12 @@
           {{ quantity }}
         </span>
         <div class="lt-md">
-          <div>
+          <div class="small-text">
             <small>
               {{ date.toFormat('ccc') }}
             </small>
           </div>
-          <div>{{ date.toFormat('LLL. d') }}</div>
+          <div class="text-bold">{{ date.toFormat('LLL d') }}</div>
         </div>
       </div>
     </div>
@@ -41,6 +41,10 @@
       offset: {
         type: Boolean,
         default: true
+      },
+      currentDate: {
+        type: Boolean,
+        default: false
       }
     },
     filters: {},
@@ -55,7 +59,8 @@
           'col': true,
           'items-center': true,
           'justify-center': true,
-          'shadow-1': false
+          'shadow-1': false,
+          'current-date': this.currentDate
         }
         returnVal['bg-' + this.backgroundColor] = true
         returnVal['text-' + this.textColor] = true
@@ -81,15 +86,20 @@
     position relative
     display inline-block
     .quantity-bubble
-      border-radius 50%
-      font-size 0.75em
-      text-align center
-      font-weight bold
-      height 2em
-      width 2em
       position absolute
       top 2px
       left 2px
+      width 60px
+      text-align left
+      @media screen and (min-width: 768px)
+        &
+          border-radius 50%
+          font-size 0.75em
+          text-align center
+          height 2em
+          width 2em
+        &.current-date
+          font-weight bold
       .quantity-value
         vertical-align middle
     .quantity-bubble-offset

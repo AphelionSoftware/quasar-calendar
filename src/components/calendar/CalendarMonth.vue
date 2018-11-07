@@ -52,6 +52,7 @@
             <quantity-bubble
               :date="thisDay.dateObject"
               :offset="false"
+              current-date
             />
           </div>
           <div
@@ -62,7 +63,12 @@
             }"
             @click="handleDayClick(thisDay.dateObject)"
           >
-            {{ thisDay.dateObject.day }}
+            <quantity-bubble
+              :date="thisDay.dateObject"
+              :offset="false"
+              text-color="black"
+              background-color="transparent"
+            />
           </div>
           <div class="calendar-day-content">
             <template v-if="hasAnyEvents(thisDay.dateObject)">
@@ -281,7 +287,7 @@
         max-width $cellWidth
         padding 0
       .calendar-day-labels
-        @media screen and (max-width: 768px)
+        @media screen and (max-width: 767px)
           &
             display none
         .calendar-day-label
@@ -290,7 +296,7 @@
           font-weight bold
       .calendar-multi-day
         border-bottom 1px solid $borderColor
-        @media screen and (max-width: 768px)
+        @media screen and (max-width: 767px)
           &
             flex-direction column
           border-bottom none
@@ -302,20 +308,20 @@
         max-height $cellHeight
         overflow hidden
         width $sevenCellWidth
-        @media screen and (max-width: 768px)
+        &.calendar-day-current.calendar-cell-hidden
+          &:after
+            content 'No events today'
+            text-align center
+            opacity .4
+            display block
+            padding 5px 10px
+        @media screen and (max-width: 767px)
           &
             width 100%
             height auto
             margin-bottom 20px
           &.calendar-cell-hidden:not(.calendar-day-current)
-            display none
-          &.calendar-day-current.calendar-cell-hidden
-            &:after
-              content 'No events today'
-              text-align center
-              opacity .4
-              display block
-              padding 5px 10px
+            opacity .2
         .calendar-day-number
           font-size 0.9em
           height 2em
