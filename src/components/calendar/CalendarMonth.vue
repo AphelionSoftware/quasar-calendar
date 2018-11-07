@@ -35,7 +35,8 @@
             'calendar-day': true,
             'calendar-cell': true,
             'calendar-day-weekend': isWeekendDay(thisDay.dateObject),
-            'calendar-day-current': isCurrentDate(thisDay.dateObject)
+            'calendar-day-current': isCurrentDate(thisDay.dateObject),
+            'calendar-cell-hidden': thisWeek.length < 1
           }"
           v-for="(thisDay, weekDayIndex) in thisWeek"
           :key="makeDT(thisDay.dateObject).toISODate()"
@@ -286,6 +287,10 @@
           font-weight bold
       .calendar-multi-day
         border-bottom 1px solid $borderColor
+        @media screen and (max-width: 768px)
+          &
+            flex-direction column
+          border-bottom none
         :last-child
           border-bottom none
       .calendar-day
@@ -294,6 +299,11 @@
         max-height $cellHeight
         overflow hidden
         width $sevenCellWidth
+        @media screen and (max-width: 768px)
+          &
+            width 100%
+          &.calendar-day-hidden:not(.calendar-day-current)
+            display none
         .calendar-day-number
           font-size 0.9em
           height 2em

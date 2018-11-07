@@ -154,8 +154,8 @@
         // simplify if AM / PM present
         if (returnString.includes('M')) {
           returnString = returnString.replace(':00', '') // remove minutes if = ':00'
-            .replace(' AM', 'a')
-            .replace(' PM', 'p')
+            .replace(' AM', 'AM')
+            .replace(' PM', 'PM')
         }
         return returnString
       },
