@@ -281,6 +281,9 @@
         max-width $cellWidth
         padding 0
       .calendar-day-labels
+        @media screen and (max-width: 768px)
+          &
+            display none
         .calendar-day-label
           font-size 1.1em
         .calendar-day-label-current
@@ -302,8 +305,15 @@
         @media screen and (max-width: 768px)
           &
             width 100%
-          &.calendar-day-hidden:not(.calendar-day-current)
+            height auto
+            margin-bottom 20px
+          &.calendar-cell-hidden:not(.calendar-day-current)
             display none
+          &.calendar-day-current.calendar-cell-hidden
+            :after
+              content 'No events today'
+              text-align center
+              opacity .3
         .calendar-day-number
           font-size 0.9em
           height 2em
