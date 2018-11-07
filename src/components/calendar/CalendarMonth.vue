@@ -36,7 +36,7 @@
             'calendar-cell': true,
             'calendar-day-weekend': isWeekendDay(thisDay.dateObject),
             'calendar-day-current': isCurrentDate(thisDay.dateObject),
-            'calendar-cell-hidden': thisWeek.length < 1
+            'calendar-cell-hidden': !hasAnyEvents(thisDay.dateObject)
           }"
           v-for="(thisDay, weekDayIndex) in thisWeek"
           :key="makeDT(thisDay.dateObject).toISODate()"

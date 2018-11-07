@@ -5,15 +5,18 @@
     @click="handleClick"
   >
     <template v-if="!eventHasPreviousDay() || (firstDayOfWeek && eventHasPreviousDay())">
-      <span v-if="!isAllDayEvent() && showTime" class="calendar-event-start-time">
-        {{ formatTime(eventObject.start.dateObject) }}
-      </span>
-      <span v-if="isEmptySlot()" class="calendar-event-summary">
-        &nbsp;
-      </span>
-      <span v-else class="calendar-event-summary">
-        {{ eventObject.summary }}
-      </span>
+      <div class="row">
+        <div class="col-auto calendar-agenda-event-dot lt-md" :class="getDotClass()"></div>
+        <div v-if="!isAllDayEvent() && showTime" class="calendar-event-start-time col-auto">
+          {{ formatTime(eventObject.start.dateObject) }}
+        </div>
+        <div v-if="isEmptySlot()" class="calendar-event-summary">
+          &nbsp;
+        </div>
+        <div v-else class="calendar-event-summary col font-weight-bold">
+          {{ eventObject.summary }}
+        </div>
+      </div>
     </template>
     <template v-else>
       &nbsp;
@@ -84,6 +87,9 @@
     computed: {
     },
     methods: {
+      getDotClass: function () {
+        return this.addCssColorClasses({}, this.eventObject)
+      },
       getEventStyle: function () {
         return {
           // 'background-color': this.backgroundColor,
@@ -220,4 +226,20 @@
     padding-left $nextPrevEdgeVal
     padding-right $nextPrevEdgeVal
     clip-path polygon($nextPrevEdgeVal 100%, 0% 50%, $nextPrevEdgeVal 0, (100% - $nextPrevEdgeVal) 0%, 100% 50%, (100% - $nextPrevEdgeVal) 100%)
+  .calendar-agenda-event-dot
+    border-radius 12px
+    width 12px
+    height 12px
+
+  @media screen and (max-width: 500px)
+    .calendar-event
+      & > div
+        flex-wrap wrap
+        & > div:first-child
+          flex 0 0 12px
+        & > div:nth-child(2)
+          flex 0 0 calc(100% - 1rem - 12px)
+        & > div:nth-child(3)
+          flex 0 0 100%
+          padding 5px 0 0 calc(1rem + 12px)
 </style>
