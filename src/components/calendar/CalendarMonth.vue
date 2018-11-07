@@ -50,7 +50,7 @@
             @click="handleDayClick(thisDay.dateObject)"
           >
             <quantity-bubble
-              :quantity="thisDay.dateObject.day"
+              :date="thisDay.dateObject"
               :offset="false"
             />
           </div>
@@ -310,10 +310,12 @@
           &.calendar-cell-hidden:not(.calendar-day-current)
             display none
           &.calendar-day-current.calendar-cell-hidden
-            :after
+            &:after
               content 'No events today'
               text-align center
-              opacity .3
+              opacity .4
+              display block
+              padding 5px 10px
         .calendar-day-number
           font-size 0.9em
           height 2em

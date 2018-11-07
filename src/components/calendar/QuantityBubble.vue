@@ -6,17 +6,28 @@
     &nbsp;
     <div :class="bubbleClass">
       <div class="quantity-value">
-        {{ quantity }}
+        <span class="gt-sm">
+          {{ quantity }}
+        </span>
+        <div class="lt-md">
+          <div>
+            <small>
+              {{ date.toFormat('ccc') }}
+            </small>
+          </div>
+          <div>{{ date.toFormat('LLL. d') }}</div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { DateTime } from 'luxon'
   export default {
     props: {
-      quantity: {
-        type: Number,
+      date: {
+        type: DateTime,
         default: 0
       },
       backgroundColor: {
@@ -34,6 +45,9 @@
     },
     filters: {},
     computed: {
+      quantity () {
+        return this.date.day
+      },
       bubbleClass: function () {
         let returnVal = {
           'quantity-bubble': true,
@@ -41,7 +55,7 @@
           'col': true,
           'items-center': true,
           'justify-center': true,
-          'shadow-1': true
+          'shadow-1': false
         }
         returnVal['bg-' + this.backgroundColor] = true
         returnVal['text-' + this.textColor] = true
@@ -49,6 +63,9 @@
           returnVal['quantity-bubble-offset'] = true
         }
         return returnVal
+      },
+      readableString () {
+        return this.date.toFormat('LLL. d').toString()
       }
     },
     methods: {},
