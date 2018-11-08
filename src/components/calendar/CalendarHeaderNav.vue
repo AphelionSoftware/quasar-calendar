@@ -41,7 +41,7 @@
         />
         <q-btn
           @click="doMoveTimePeriod(timePeriodUnit, timePeriodAmount)"
-          icon-right="chevron_right"
+          icon="chevron_right"
           color="primary"
           round
           dense
