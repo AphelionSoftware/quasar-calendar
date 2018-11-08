@@ -180,7 +180,7 @@ export default {
       let paramObj = {}
       paramObj[params.unitType] = params.amount
       this.workingDate = this.workingDate.plus(paramObj)
-      this.$root.$emit('calendar-switch-month', this.workingDate)
+      this.$root.$emit('calendar-switch-period', this.workingDate)
     },
     setTimePeriod: function (params) {
       this.workingDate = params.dateObject
