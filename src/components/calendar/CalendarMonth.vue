@@ -7,7 +7,10 @@
       :time-period-amount="1"
       :move-time-period-emit="eventRef + ':navMovePeriod'"
     >
-      {{ formatDate(workingDate, 'MMMM yyyy') }}
+      <template>{{ formatDate(workingDate, 'MMMM yyyy') }}</template>
+      <template slot="buttons">
+        <slot />
+      </template>
     </calendar-header-nav>
 
     <div class="calendar-content">
@@ -320,6 +323,7 @@
             width 100%
             height auto
             margin-bottom 20px
+            max-height 100%
           &.calendar-cell-hidden:not(.calendar-day-current)
             opacity .2
         .calendar-day-number

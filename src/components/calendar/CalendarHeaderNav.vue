@@ -1,25 +1,32 @@
 <template>
-  <div class="calendar-header col-auto row justify-between items-center">
-    <div class="calendar-header-left col-auto">
-      <q-btn
-        @click="doMoveTimePeriod(timePeriodUnit, -timePeriodAmount)"
-        icon="chevron_left"
-        color="primary"
-        round
-        flat
-      />
+  <div>
+    <div class="relative-position calendar-header col-auto row justify-between items-center text-white" :class="'bg-' + ($route.params.colour || 'primary')">
+      <div class="calendar-header-label">
+        <slot/>
+        <slot name="buttons" />
+      </div>
     </div>
-    <div class="calendar-header-label">
-      <slot/>
-    </div>
-    <div class="calendar-header-right col-auto">
-      <q-btn
-        @click="doMoveTimePeriod(timePeriodUnit, timePeriodAmount)"
-        icon="chevron_right"
-        color="primary"
-        round
-        flat
-      />
+    <div class="calendar-header col-auto row justify-between items-center">
+      <div class="calendar-header-left col-auto">
+        <q-btn
+          @click="doMoveTimePeriod(timePeriodUnit, -timePeriodAmount)"
+          icon="chevron_left"
+          color="primary"
+          rounded
+          label="Previous Month"
+          flat
+        />
+      </div>
+      <div class="calendar-header-right col-auto">
+        <q-btn
+          @click="doMoveTimePeriod(timePeriodUnit, timePeriodAmount)"
+          icon-right="chevron_right"
+          color="primary"
+          rounded
+          label="Next Month"
+          flat
+        />
+      </div>
     </div>
   </div>
 </template>
