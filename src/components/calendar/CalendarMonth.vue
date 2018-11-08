@@ -333,6 +333,10 @@
           vertical-align middle
           padding-top .25em
           padding-left .25em
+          @media screen and (max-width: 767px)
+            &
+              height 3.5em
+              width 60px
       .calendar-day-current
         background-color $currentDayBackgroundColor
       .calendar-day-weekend
