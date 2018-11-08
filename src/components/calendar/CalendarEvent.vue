@@ -106,7 +106,9 @@
             'calendar-event-has-previous-day': this.eventHasPreviousDay(),
             'calendar-event-empty-slot': this.isEmptySlot(),
             'calendar-event-continues-next-week': this.eventContinuesNextWeek(), // for future use
-            'calendar-event-continues-from-last-week': this.eventContinuesFromLastWeek() // for future use
+            'calendar-event-continues-from-last-week': this.eventContinuesFromLastWeek(), // for future use,
+            'animated': true,
+            'fadeInUp': true
           },
           this.eventObject
         )
