@@ -91,6 +91,7 @@
       left 2px
       width 60px
       text-align left
+      cursor pointer
       @media screen and (min-width: 768px)
         &
           border-radius 50%
