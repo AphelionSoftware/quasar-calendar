@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="relative-position calendar-header col-auto row justify-between items-center text-white" :class="'bg-' + ($route.meta.colour || 'primary')">
-      <div class="calendar-header-label">
+    <q-toolbar class="relative-position overflow-visible" :color="$route.meta.colour || 'primary'">
+      <q-toolbar-title>
         <slot/>
-        <slot name="buttons" />
-      </div>
-    </div>
+      </q-toolbar-title>
+      <slot name="buttons" />
+    </q-toolbar>
     <div class="calendar-header col-auto row justify-between items-center">
       <div class="calendar-header-left col-auto">
         <q-btn
