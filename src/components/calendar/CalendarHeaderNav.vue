@@ -1,18 +1,19 @@
 <template>
   <div>
-    <q-toolbar class="relative-position overflow-visible" :color="$route.meta.colour || 'primary'">
+    <q-toolbar class="slim relative-position overflow-visible shadow-soft-1" :color="$route.meta.colour || 'primary'">
       <q-toolbar-title>
         <slot/>
       </q-toolbar-title>
       <slot name="buttons" />
     </q-toolbar>
-    <div class="calendar-header col-auto row justify-between items-center">
+    <div class="calendar-header col-auto row justify-between items-center q-pt-sm">
       <div class="calendar-header-left col-auto">
         <q-btn
           @click="doMoveTimePeriod(timePeriodUnit, -timePeriodAmount)"
           icon="chevron_left"
           color="primary"
           rounded
+          dense
           label="Previous Month"
           flat
         />
@@ -23,6 +24,7 @@
           icon-right="chevron_right"
           color="primary"
           rounded
+          dense
           label="Next Month"
           flat
         />
