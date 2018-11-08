@@ -239,6 +239,7 @@
         if (this.fullComponentRef) {
           this.fullMoveToDay(dateObject)
         }
+        this.$root.$emit('click-date-' + this.eventRef, dateObject)
       }
     },
     mounted () {
