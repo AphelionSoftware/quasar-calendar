@@ -6,7 +6,7 @@
       </q-toolbar-title>
       <slot name="buttons" />
     </q-toolbar>
-    <div class="calendar-header flex justify-start q-pt-sm">
+    <div class="calendar-header flex justify-start q-pt-sm q-pl-md q-pr-md">
       <div class="calendar-header-left col-auto q-pr-lg">
         <q-btn
           @click="doMoveTimePeriod(timePeriodUnit, -timePeriodAmount)"
@@ -16,7 +16,7 @@
           dense
           label="Previous Month"
           flat
-          class="gt-sm"
+          class="gt-xs"
         />
         <q-btn
           @click="doMoveTimePeriod(timePeriodUnit, -timePeriodAmount)"
@@ -25,7 +25,7 @@
           round
           dense
           flat
-          class="lt-md"
+          class="lt-sm"
         />
       </div>
       <div class="calendar-header-right col-auto">
@@ -37,7 +37,7 @@
           dense
           label="Next Month"
           flat
-          class="gt-sm"
+          class="gt-xs"
         />
         <q-btn
           @click="doMoveTimePeriod(timePeriodUnit, timePeriodAmount)"
@@ -46,7 +46,7 @@
           round
           dense
           flat
-          class="lt-md"
+          class="lt-sm"
         />
       </div>
     </div>
