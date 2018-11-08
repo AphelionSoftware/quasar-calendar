@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="relative-position calendar-header col-auto row justify-between items-center text-white" :class="'bg-' + ($route.params.colour || 'primary')">
+    <div class="relative-position calendar-header col-auto row justify-between items-center text-white" :class="'bg-' + ($route.meta.colour || 'primary')">
       <div class="calendar-header-label">
         <slot/>
         <slot name="buttons" />
