@@ -80,7 +80,9 @@
       QTooltip
     },
     mixins: [CalendarMixin, CalendarEventMixin],
-    data () {},
+    data () {
+      return {}
+    },
     computed: {
     },
     methods: {
