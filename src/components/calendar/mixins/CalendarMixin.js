@@ -67,8 +67,19 @@ export default {
         return 'primary'
       }
     },
+    getStatusColor (eventObject) {
+      switch (eventObject.status) {
+        default:
+        case 'INCOMPLETE':
+          return 'red-8'
+        case 'IN PROGRESS':
+          return 'orange-8'
+        case 'COMPLETE':
+          return 'green-8'
+      }
+    },
     addCssColorClasses: function (cssObject, eventObject) {
-      cssObject['bg-' + this.getEventColor(eventObject, 'color')] = true
+      cssObject['bg-' + this.getStatusColor(eventObject)] = true
       cssObject['text-' + this.getEventColor(eventObject, 'textColor')] = true
       return cssObject
     },
