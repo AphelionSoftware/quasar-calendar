@@ -176,6 +176,9 @@
         return this.eventObject.start.isAllDay
       },
       handleClick: function (e) {
+        if (this.popoverOpen) {
+          return
+        }
         this.eventObject.allowEditing = this.allowEditing
         this.$emit('click', this.eventObject)
         this.triggerEventClick(this.eventObject, this.eventRef)
