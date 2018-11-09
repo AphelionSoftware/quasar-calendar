@@ -3,6 +3,7 @@
     :class="getEventClass()"
     :style="getEventStyle()"
     @click="handleClick"
+    v-touch-hold="handleLongClick"
   >
     <template v-if="!eventHasPreviousDay() || (firstDayOfWeek && eventHasPreviousDay())">
       <div class="row">
@@ -20,6 +21,9 @@
     <template v-else>
       &nbsp;
     </template>
+    <q-popover v-model="popoverOpen">
+      <slot name="popover" :event="eventObject" />
+    </q-popover>
   </div>
 </template>
 
@@ -81,7 +85,9 @@
     },
     mixins: [CalendarMixin, CalendarEventMixin],
     data () {
-      return {}
+      return {
+        popoverOpen: false
+      }
     },
     computed: {
     },
@@ -173,6 +179,12 @@
         this.eventObject.allowEditing = this.allowEditing
         this.$emit('click', this.eventObject)
         this.triggerEventClick(this.eventObject, this.eventRef)
+      },
+      handleLongClick (props) {
+        if (props.duration < 500) {
+          return
+        }
+        this.popoverOpen = true
       }
     },
     mounted () {}

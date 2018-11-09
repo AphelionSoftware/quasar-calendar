@@ -90,7 +90,11 @@
                   :first-day-of-week="(weekDayIndex === 0)"
                   :last-day-of-week="(weekDayIndex === (thisWeek.length -1))"
                   :allow-editing="allowEditing"
-                />
+                >
+                  <template slot="popover" slot-scope="{event}">
+                    <slot name="popover" :event="event" />
+                  </template>
+                </calendar-event>
               </div>
             </template>
           </div>
