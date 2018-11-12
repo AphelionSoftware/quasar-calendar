@@ -314,7 +314,8 @@
         background-color none
         height $cellHeight
         max-height $cellHeight
-        overflow auto
+        overflow-x hidden
+        overflow-y auto
         width $sevenCellWidth
         &.calendar-day-current.calendar-cell-hidden
           &:after
