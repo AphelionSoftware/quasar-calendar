@@ -9,7 +9,7 @@ const defaultParsed = {
   byStartDate: {},
   byId: {}
 }
-const { DateTime } = require('luxon')
+import { DateTime } from 'luxon'
 export default {
   computed: {},
   methods: {
