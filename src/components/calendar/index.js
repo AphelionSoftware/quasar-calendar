@@ -12,6 +12,8 @@ import CalendarTimeLabelColumn from './CalendarTimeLabelColumn'
 import CalendarMultiDay from './CalendarMultiDay'
 import QuantityBubble from './QuantityBubble'
 
+import CalendarMixin from './mixins/CalendarMixin'
+
 export {
   Calendar,
   CalendarAgenda,
@@ -25,5 +27,6 @@ export {
   CalendarMonth,
   CalendarTimeLabelColumn,
   CalendarMultiDay,
-  QuantityBubble
+  QuantityBubble,
+  CalendarMixin
 }
