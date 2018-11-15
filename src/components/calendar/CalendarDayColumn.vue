@@ -206,11 +206,11 @@
         clearInterval(this.timePositionInterval)
       }
     },
-    mounted () {
+    mounted: function () {
       this.mountSetDate()
       this.startTimePositionInterval()
     },
-    beforeDestroy () {
+    beforeDestroy: function () {
       this.endTimePositionInterval()
     }
   }

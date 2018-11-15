@@ -75,7 +75,7 @@
         return this.makeDT(thisDateObject).plus({ days: numDays })
       }
     },
-    mounted () {
+    mounted: function () {
       this.mountSetDate()
     },
     updated () {

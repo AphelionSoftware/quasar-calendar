@@ -33,7 +33,7 @@
     },
     computed: {},
     methods: {},
-    mounted () {}
+    mounted: function () {}
   }
 </script>
 

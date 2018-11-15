@@ -222,7 +222,7 @@
         this.mountSetDate()
       }
     },
-    mounted () {
+    mounted: function () {
       this.mountSetDate()
       this.parseEventList()
       this.setupEventsHandling()

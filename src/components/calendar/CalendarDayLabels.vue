@@ -104,7 +104,7 @@
         }
       }
     },
-    mounted () {
+    mounted: function () {
       this.mountSetDate()
     },
     watch: {

@@ -514,7 +514,7 @@
         this.__close()
       },
     },
-    mounted () {}
+    mounted: function () {}
   }
 </script>
 

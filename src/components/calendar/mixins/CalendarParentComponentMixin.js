@@ -42,5 +42,5 @@ export default {
       default: 7
     }
   },
-  mounted () {}
+  mounted: function () {}
 }

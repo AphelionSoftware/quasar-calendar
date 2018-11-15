@@ -243,7 +243,7 @@
         this.scrollToElement(thisEl)
       }
     },
-    mounted () {
+    mounted: function () {
       this.doUpdate()
       this.handlePassedInEvents()
       this.$root.$on(

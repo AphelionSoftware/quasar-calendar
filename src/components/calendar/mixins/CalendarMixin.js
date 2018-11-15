@@ -279,5 +279,5 @@ export default {
         thisHour
     }
   },
-  mounted () {}
+  mounted: function () {}
 }

@@ -92,7 +92,7 @@
         )
       }
     },
-    mounted () {}
+    mounted: function () {}
   }
 </script>
 

@@ -243,7 +243,7 @@
         }
       }
     },
-    mounted () {
+    mounted: function () {
       this.localNumDays = this.numDays
       this.doUpdate()
       this.handlePassedInEvents()

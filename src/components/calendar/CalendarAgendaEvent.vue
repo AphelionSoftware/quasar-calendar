@@ -150,7 +150,7 @@
         this.triggerEventClick(this.eventObject, this.eventRef)
       }
     },
-    mounted () {}
+    mounted: function () {}
   }
 </script>
 

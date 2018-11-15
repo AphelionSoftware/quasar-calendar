@@ -246,7 +246,7 @@
         this.$root.$emit('click-date-' + this.eventRef, dateObject)
       }
     },
-    mounted () {
+    mounted: function () {
       this.doUpdate()
       this.handlePassedInEvents()
       this.$root.$on(
