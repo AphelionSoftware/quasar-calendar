@@ -67,7 +67,7 @@ export default {
         return 'primary'
       }
     },
-    getStatusColor (eventObject) {
+    getStatusColor: function (eventObject) {
       switch (eventObject.status) {
         default:
         case 'INCOMPLETE':
@@ -91,7 +91,7 @@ export default {
         return this.makeDT(dateObject).toFormat(formatString)
       }
     },
-    dateAdjustWeekday (thisDateObject, weekdayNum) {
+    dateAdjustWeekday: function (thisDateObject, weekdayNum) {
       thisDateObject = this.makeDT(thisDateObject)
       let checkDate = DateTime.local()
       let adjustForward = true
@@ -212,7 +212,7 @@ export default {
       const dayNumber = this.makeDT(thisDateObject).weekday
       return (dayNumber === 6 || dayNumber === 7)
     },
-    getWeekNumber (thisDateObject, useSundayStart) {
+    getWeekNumber: function (thisDateObject, useSundayStart) {
       if (useSundayStart) {
         return this.makeDT(thisDateObject).plus({days: 1}).weekNumber
       }
